@@ -13,7 +13,6 @@ const App = () => {
 
 
     const serchMovies = async (title) => {
-        console.log("Title ** ", title);
         if (title.trim() != "") {
             try {
                 const response = await fetch(`${API_URL}&s=${title}`)

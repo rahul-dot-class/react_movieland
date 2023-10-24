@@ -1,8 +1,6 @@
 import React from "react";
 
 const MovieCard = function ({ movie }) {
-    console.log("^^^^^^^", movie)
-
     if (movie !== undefined)
         return (<div className="movie">
             <div>
@@ -14,5 +12,4 @@ const MovieCard = function ({ movie }) {
         </div>);
     else return (<p>loading ...</p>)
 };
-
 export default MovieCard;
