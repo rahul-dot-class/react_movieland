@@ -9,9 +9,11 @@ const API_URL = "http://www.omdbapi.com?apikey=246f575a";
 const App = () => {
 
     const [movies, setMovies] = useState([]);
+    const [searchLable, setSearchLable] = useState("");
 
 
     const serchMovies = async (title) => {
+        console.log("Title ** ", title);
         if (title.trim() != "") {
             try {
                 const response = await fetch(`${API_URL}&s=${title}`)
@@ -36,10 +38,8 @@ const App = () => {
         <div className="app">
             <h1>MovieLand</h1>
             <div className="search">
-                <input id="searchId" type="text" placeholder="Enter Movie name here"></input>
-                <img src={SearchIcon} alt="Search" onClick={() => serchMovies($('#searchId').val())} />
-
-
+                <input id="searchId" onChange={(event) => setSearchLable(event.target.value)} type="text" placeholder="Enter Movie name here"></input>
+                <img src={SearchIcon} alt="Search" onClick={() => serchMovies(searchLable)} />
             </div>
             {
                 Array.isArray(movies) && movies?.length > 0 ? (
